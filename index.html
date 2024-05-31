@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RECOMMENDATIONS BY MBTI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        .search {
+            display: flex;
+            align-items: center;
+        }
+        .search input {
+            width: 148px;
+            height: 24px;
+            font-size: 14px;
+            border: none;
+            border-bottom: 1px black solid;
+            margin-right: 10px;
+        }
+
+        .search button {
+            font-size: 35px;
+            border: none;
+            background-color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            color: black;
+            cursor: pointer;
+        }
+    
+        * {
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+        }
+        
+    
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 100%;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: lighter;
+            text-align: center;
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+      
+        .container {
+            overflow: visible;
+            width: 1080px;
+            margin: 0 auto;
+            margin-bottom: 8px;  
+            display: flex;
+            justify-content: center;
+            text-align: center; 
+        }
+
+        .gnb {
+            padding: 8px 0px;
+            display: inline-block;
+            margin-left: 125px;
+            margin-right: 125px;
+            margin-bottom: -1px;
+            text-align: center;
+            position: relative;
+            font-size: 18px;
+            z-index: 9999;
+            list-style-type: none;
+        }
+        .gnb > a {
+            list-style-type: none;
+            margin-left: 10px;
+            line-height: 10px;
+            display: inline-block;
+        }
+        .gnb > a:first-child {
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-left: 40px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .gnb a:hover {
+            color: darkblue;
+        }
+        .gnb a:active {
+            color: black;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        div.section {
+            border: 1px solid black;
+            margin: 3px;
+            padding: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: darkgray;
+        }
+        .header img {
+            margin-top: 4px;
+        }
+        li {
+            font-size: 18px;
+            list-style: none;
+        }
+        button {
+            font-size: 18px;
+        }
+        .help p > b {
+            font-size: 40px;
+        }
+        .help p {
+            font-size: 25px;
+        }
+
+        .center {
+            width: 960px;
+            margin: 0 auto;
+        }
+        .help-button  {
+                font-size: 20px;
+        }
+    @media screen and (max-width: 767px) {
+        .header {
+            flex-direction: column;
+            padding: 80px;
+        }
+        .header h1 {
+                margin-top: 80px;
+        }
+        .container {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .center {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .gnb {
+                margin-bottom: 8px;
+                font-size: 21px;
+        }
+        .center {
+            flex-direction: column;
+            align-items: center;
+            padding-left: 0;
+        }
+        .help {
+            padding-left: 0;
+            text-align: center;
+            width: 100%;
+        }
+        .help p {
+            margin-left: 20px;
+        }
+        .faq {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 90%;
+
+        }
+        li {
+            font-size: 15px;
+            list-style: none;
+        }
+        .help-button {
+            font-size: 18px;
+            margin-left: 20px;
+        }
+        button {
+            font-size: 15px;
+        }
+
+        .search {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 70px;
+        top: 20px;
+        }
+        .search input {
+        width: 148px;
+        height: 24px;
+        font-size: 14px;
+        border: none;
+        border-bottom: 1px black solid;
+        margin: 0 auto;
+        display: block;
+        }
+
+        .search button {
+        font-size: 35px;
+        border: none;
+        float: right;
+        background-color: white;
+        padding: 6px 12px;
+        border-radius: 15px;
+        color: black;
+        cursor: pointer;
+        float: right;
+
+        }
+        body { position: relative;}
+        .header img { 
+                position: absolute;
+                top: 30px;
+                right: 20px;
+
+                
+        }
+       
+        
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 959px) {
+        .header {
+            flex-direction: column;
+            padding: 80px;
+        }
+        .header h1 {
+                margin-top: 80px;
+        }
+        .container {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .center {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .gnb {
+                margin-bottom: 8px;
+                font-size: 21px;
+        }
+        .center {
+            flex-direction: column;
+            align-items: center;
+            padding-left: 0;
+        }
+        .help {
+            padding-left: 0;
+            text-align: center;
+            width: 100%;
+        }
+        .help p {
+            margin-left: 20px;
+        }
+        .faq {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 90%;
+
+        }
+        li {
+            font-size: 18px;
+            list-style: none;
+        }
+        .help-button {
+            font-size: 18px;
+            margin-left: 40px;
+        }
+        button {
+            font-size: 18px;
+        }
+
+        .search {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 70px;
+        top: 20px;
+        }
+        .search input {
+        width: 148px;
+        height: 24px;
+        font-size: 14px;
+        border: none;
+        border-bottom: 1px black solid;
+        margin: 0 auto;
+        display: block;
+        }
+
+        .search button {
+        font-size: 35px;
+        border: none;
+        float: right;
+        background-color: white;
+        padding: 6px 12px;
+        border-radius: 15px;
+        color: black;
+        cursor: pointer;
+        float: right;
+
+        }
+        body { position: relative;}
+        .header img { 
+                position: absolute;
+                top: 30px;
+                right: 20px;
+
+                
+        }
+    }
+    </style>
+<script>
+        $(document).ready(function(){
+            $.fn.extend({
+                faq: function(){
+                    let ts = $(this);
+                    $.each(ts, function(i, o){
+                        $("button", o).on("click", function(){
+                            if($(this).closest("li").find(".cont").is(":hidden")){
+                                $(".cont:visible", ts).hide();
+                                $(this).closest("li").find(".cont").show();
+                            } else {
+                                $(this).closest("li").find(".cont").hide();
+                            }
+                        });
+                    });
+                }
+            });
+            $(".faq").faq();
+        });
+</script>
+</head>
+<body>
+    <div class="header">
+        <h1>RECOMMENDATIONS BY <b>MBTI</b> TYPE</h1>
+        <form action="https://search.naver.com/search.naver" style="margin-left: auto;">
+            <div class="search">
+                <input type="text" name="query" value="">
+                <button type="submit">⌕</button>
+            </div>
+        </form>
+        &nbsp;&nbsp;&nbsp;
+        <a href="https://wulwu.github.io/qnaafter/">
+            <img src="https://cdn-icons-png.flaticon.com/512/2608/2608207.png" alt="Q&A" width="30">
+        </a>
+        &nbsp;&nbsp;
+    </div>
+
+    <br>
+    <hr>
+    <div class="container">
+        <ul class="gnb">
+            <a href="https://wulwu.github.io/mbtibuttonpage/">MBTI</a>
+        </ul>
+        <ul class="gnb">
+            <a href="https://google.com">BOOK</a>
+        </ul>
+        <ul class="gnb">
+            <a href="https://naver.com">MUSIC</a>
+        </ul>
+        <ul class="gnb">
+            <a href="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC">TEST</a>
+        </ul>
+    </div>
+    <hr>
+    <div class="center">
+        <div class="help">
+            <br>
+            <br>
+            <br>
+            <p><b>안녕하세요</b></p>
+            <p>환영합니다!</p><br><br>
+        </div>
+        <p class="help-button">*도움이 필요한 버튼을 눌러주세요</p>
+        <br>
+        <br>
+        <div class="faq">
+            <ul>
+                <li>
+                    <p><button>&nbsp;TEST 버튼&nbsp;</button></p><br>
+                    <div class="cont" style="display:none;">
+                        <div>- 나의 MBTI가 뭔지 모르는 경우, 오른쪽 상단에 있는 TEST 버튼을 누르면 MBTI 검사를 할 수 있습니다.<br><br><br></div>
+                    </div>
+                </li>
+            </ul> 
+            <hr><br><br>
+        </div>
+        <div class="faq">
+            <ul>
+                <li>
+                    <p><button>&nbsp;MBTI 버튼&nbsp;</button></p><br>
+                    <div class="cont" style="display:none;">
+                        <div>- 상단에 자신의 MBTI를 누르면 해당 MBTI로 넘어갈 수 있어요!<br><br><br></div>
+                    </div>
+                </li>
+            </ul>
+            <hr><br><br>
+        </div>
+        <div class="faq">
+            <ul>
+                <li>
+                    <p><button>&nbsp;BOOK 버튼&nbsp;</button></p><br>
+                    <div class="cont" style="display:none;">
+                        <div>- 상단에 자신의 MBTI를 누르면 해당 MBTI로 쉽고 빠르게 넘어갈 수 있어요! 체크박스 체크할 경우, 상단에 있는 MBTI 진열이 사라집니다.</div><br>
+                        <div>- 상단에 있는 'RECOMMENDATIONS BY MBTI TYPE'을 누르면 메인페이지로 이동합니다.</div><br>
+                        <div>- 책 이미지 클릭시, 책 판매처 사이트로 이동합니다.<br><br><br></div>
+                    </div>
+                </li>
+            </ul>
+            <hr><br><br>
+        </div>
+        <div class="faq">
+            <ul>
+                <li>
+                    <p><button>&nbsp;MUSIC 버튼&nbsp;</button></p><br>
+                    <div class="cont" style="display:none;">
+                        <div>- 화면을 스크롤하면 해당 음원 뮤직비디오를 시청할 수 있습니다.</div><br>
+                        <div>- 상단에 있는 'RECOMMENDATIONS BY MBTI TYPE'을 누르면 메인페이지로 이동합니다.</div><br>
+                        <div>- 음악 이미지 클릭시 멜론 바로가기가 가능합니다.<br><br><br></div>
+                    </div>
+                </li>
+            </ul>
+            <hr><br><br>
+        </div>
+        <div class="faq">
+            <ul>
+                <li>
+                    <p><button>&nbsp;검색 버튼&nbsp;</button></p><br>
+                    <div class="cont" style="display:none;">
+                        <div>- 사이트 상단에 있는 검색 버튼을 사용하면 자동으로 네이버로 넘어가서 검색이 됩니다.<br><br><br></div>
+                    </div>
+                </li>
+            </ul>
+        </div><br><br><br><br>
+    </div>
+</body>
+</html>
